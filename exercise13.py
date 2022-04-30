@@ -3,9 +3,19 @@
 # не может занять место рядом с другим. Должно быть одно свободное место между двумя людьми, отдыхающими на пляже.
 # Функци должна вернуть число - количество новых людей, которые могут воспользоваться местами на пляже.
 
-def freePlaces(string: str) -> int:
-    freePlaces = string.count('0')
-    numberOfPersons = string.count('1')
-    return freePlaces - numberOfPersons if freePlaces - numberOfPersons >= 0 else 0
+def bugFixFreePlaces(str: str) -> int:
+    count = 0
+    i = 0
+    while i < len(str)-1:
+        if i > 0:
+            if str[i] == '0':
+                if (str[i - 1] == '0') and (str[i + 1] == '0'):
+                    count += 1
+        i += 1
 
-print(freePlaces('10101010101010101000'))
+    return count
+
+
+print(bugFixFreePlaces('10101010101010101000'))
+print(bugFixFreePlaces('10001001'))
+print(bugFixFreePlaces('01000'))
