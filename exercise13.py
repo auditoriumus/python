@@ -6,8 +6,16 @@
 def bugFixFreePlaces(str: str) -> int:
     count = 0
     i = 0
-    while i < len(str)-1:
-        if i > 0:
+    while i <= len(str)-1:
+        if i == 0:
+            if (str[i] == '0') and (str[i + 1] == '0') and (str[i + 2] == '1'):
+                count += 1
+        elif i == len(str)-1:
+            if str[i] == '0':
+                if (str[i - 2] == '1') and (str[i - 1] == '0'):
+                    count += 1
+            break
+        elif i > 0:
             if str[i] == '0':
                 if (str[i - 1] == '0') and (str[i + 1] == '0'):
                     count += 1
@@ -18,4 +26,5 @@ def bugFixFreePlaces(str: str) -> int:
 
 print(bugFixFreePlaces('10101010101010101000'))
 print(bugFixFreePlaces('10001001'))
+print(bugFixFreePlaces('01000'))
 print(bugFixFreePlaces('00100'))
