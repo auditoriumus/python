@@ -1,10 +1,10 @@
 # Написать функцию, которая будет принимать одно значение - список. Функция должна возвращать самое
 # частое значение в списке (встречается > N/2). Пример: test_function(["A", "A", "A", "B", "C", "A"]) ➞ "A"
 
-characters = ["A", "A", "A", "B", "C", "A", "C", "C", "C"]
+characters = ["A", "A", "A", "B", "C", "A", "C", "C", "C", "A", "C"]
 
 
-def findOftenValue(list: list) -> str:
+def findOftenValue(list: list):
     dict = {}
     for item in list:
         if dict.get(item) is None:
@@ -15,13 +15,15 @@ def findOftenValue(list: list) -> str:
             dict.update({item: value})
 
     count = 0
-    resultKey = ''
     for key in dict:
         if dict[key] > count:
             count = dict[key]
-            resultKey = key
+    result = {}
+    for key in dict:
+        if dict[key] == count:
+            result[key] = dict[key]
 
-    return resultKey
+    return result
 
 
 print(findOftenValue(characters))

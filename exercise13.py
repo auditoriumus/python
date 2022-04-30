@@ -18,4 +18,4 @@ def bugFixFreePlaces(str: str) -> int:
 
 print(bugFixFreePlaces('10101010101010101000'))
 print(bugFixFreePlaces('10001001'))
-print(bugFixFreePlaces('01000'))
+print(bugFixFreePlaces('00100'))
